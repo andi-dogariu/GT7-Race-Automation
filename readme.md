@@ -4,7 +4,7 @@
 
 This version is specialized for money grind using Daytona custom race in version 1.40.
 
-I only tested with engine-swapped abarth 500. Time / handle may vary if you use different cars.
+I only tested with engine-swapped abarth 595 SS '70. Time / handle may vary if you use different cars.
 
 To make it work, you need to install older version of PS Remote Play, as the latest version does not take PyAutoGUI (see https://forum.psnprofiles.com/topic/142048-is-jump-script-method-even-possible-these-days/?do=findComment&comment=2752418). Further, WSL may not work - I had to use windows' version of python with PyAutoGUI installed, and run powershell as Administrator.
 
