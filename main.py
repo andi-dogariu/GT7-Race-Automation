@@ -16,7 +16,6 @@ def press(key: str) -> None:
     Using vanilla `pyautogui.press()` will not register the keystroke
     because GT requires you hold a keypress for a small duration."""
     time.sleep(2)
-    print(key)
     with pyautogui.hold(key):
         time.sleep(0.2)
 
