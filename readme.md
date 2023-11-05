@@ -1,4 +1,15 @@
-# GT7 Race Automation
+# GT7 Race Automation for Daytona
+
+=====================================================================================================
+This version is specialized for money grind using Daytona custom race in version 1.40.
+
+I only tested with engine-swapped abarth 500. Time / handle may vary if you use different cars.
+
+To make it work, you need to install older version of PS Remote Play, as the latest version does not take PyAutoGUI (see https://forum.psnprofiles.com/topic/142048-is-jump-script-method-even-possible-these-days/?do=findComment&comment=2752418). Further, WSL may not work - I had to use windows' version of python with PyAutoGUI installed, and run powershell as Administrator.
+
+Script should be run with your cursor on "start" in the screen for the custom race, along with "Settings", "Exit", etc. on the right. After this the grinding will be automated.
+
+=====================================================================================================
 
 The `main.py` script allows you to automate racing circular tracks using PyAutoGUI and PS Remote Play. Depending on the car and track you race, you can make 400K/hr or more. NOTE: The track must have unidirectional turns, meaning every turn should be either left or right. I think the script should work on any platform.
 
