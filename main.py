@@ -5,7 +5,7 @@ import pyautogui
 
 # Default parameters - these can be overridden with command
 # line arguments. See end of script for details.
-RACE_DURATION = 200
+RACE_DURATION = 1500
 DIRECTION = "right"
 SILENCE = False
 
@@ -15,6 +15,8 @@ def press(key: str) -> None:
 
     Using vanilla `pyautogui.press()` will not register the keystroke
     because GT requires you hold a keypress for a small duration."""
+    time.sleep(2)
+    print(key)
     with pyautogui.hold(key):
         time.sleep(0.2)
 
@@ -34,10 +36,10 @@ def ride_rail(direction: str) -> None:
     """
 
     race_start = time.time()
-    with pyautogui.hold("up"):
+    with pyautogui.hold("enter"):
         while time.time() - race_start < RACE_DURATION:
-            hold(direction, (random.randrange(200) / 1000))
-            time.sleep((random.randrange(100) / 100))
+            hold(direction, 0.2)
+            time.sleep(0.1)
 
 
 def race(direction: str) -> None:
@@ -56,13 +58,29 @@ def end_race() -> None:
         "enter",
         "enter",
         "enter",
-        "enter",
+        "right",
         "right",
         "enter",
+        "wait",
+        "enter",
+        "enter",
+        "left",
+        "up",
+        "up",
+        "enter",
+        "enter",
+        "enter",
+        "enter",
+        "down",
+        "down",
+        "enter",
+        "wait"
     ]
     for command in commands:
-        press(command)
-        time.sleep((random.randrange(500) / 1000) + 2)
+        if command == "wait":
+            time.sleep(10)
+        else:
+            press(command)
 
 
 def start_race(first: bool) -> None:
@@ -76,14 +94,13 @@ def start_race(first: bool) -> None:
         center = width / 2, height / 2
         pyautogui.moveTo(center)
         pyautogui.click()
-        time.sleep(1)
+        # time.sleep(1)
 
         # This button sequence will click 'race' regardless of where
         # the cursor starts
         press("down")
         press("down")
         press("down")
-        press("left")
         press("enter")
     else:
         press("enter")
