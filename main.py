@@ -58,22 +58,7 @@ def end_race() -> None:
         "enter",
         "enter",
         "right",
-        "right",
-        "enter",
-        "wait",
-        "enter",
-        "enter",
-        "left",
-        "up",
-        "up",
-        "enter",
-        "enter",
-        "enter",
-        "enter",
-        "down",
-        "down",
-        "enter",
-        "wait"
+        "enter"
     ]
     for command in commands:
         if command == "wait":
