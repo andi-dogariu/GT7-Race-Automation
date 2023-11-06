@@ -4,11 +4,22 @@
 
 This version is specialized for money grind using Daytona custom race in version 1.40.
 
-I only tested with engine-swapped abarth 595 SS '70. Time / handle may vary if you use different cars.
+I only tested with engine-swapped abarth 595 SS '70. Time / steer may vary if you use different cars.
 
 To make it work, you need to install older version of PS Remote Play, as the latest version does not take PyAutoGUI (see https://forum.psnprofiles.com/topic/142048-is-jump-script-method-even-possible-these-days/?do=findComment&comment=2752418). Further, WSL may not work - I had to use windows' version of python with PyAutoGUI installed, and run powershell as Administrator.
 
 Script should be run with your cursor on "start" in the screen for the custom race, along with "Settings", "Exit", etc. on the right. After this the grinding will be automated.
+
+Beyond the controller settings mentioned below, you also need to set the acceleration / brake to X / square button. The original "up/down" button was somehow confusing.
+
+The settings of the cars are listed in `/settings`. The assist/ other controller settings are: 
+```
+traction control : 1
+stability management: OFF
+counter steer assist: OFF
+controller steer speed adjust (コントローラー操舵スピード補正）: 4
+```
+which might affect if the car gets spinning.
 
 ====================================
 
