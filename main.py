@@ -2,6 +2,7 @@ import sys
 import time
 import random
 import pyautogui
+pyautogui.failSafe = True
 
 # Default parameters - these can be overridden with command
 # line arguments. See end of script for details.
@@ -139,14 +140,25 @@ if __name__ == "__main__":
 
     first = True
     while True:
-        start = time.time()
-        start_race(first)
-        first = False
-        race(DIRECTION)
-        end_race()
-        end = time.time()
-        duration = end - start
-        print(duration, flush=True)
+        try:
+            start = time.time()
+            start_race(first)
+            first = False
+            race(DIRECTION)
+            end_race()
+            end = time.time()
+            duration = end - start
+            print(duration, flush=True)
 
-        if not SILENCE:
-            print(f"{(((60 * 60) / duration)):.2f} races/hour", flush=True)
+            if not SILENCE:
+                print(f"{(((60 * 60) / duration)):.2f} races/hour", flush=True)
+
+        except pyautogui.FailSafeException as e:
+            print("Fail-safe triggered! Exiting...")
+            sys.exit(0)
+        except KeyboardInterrupt as e:
+            print("Keyboard interrupt! Exiting...")
+            sys.exit(0)
+        except Exception as e:
+            print(f"An error occurred: {e}", flush=True)
+            time.sleep(5)
