@@ -31,7 +31,7 @@ def ride_rail(direction: str) -> None:
     """
     This will drive a car around any convex hull while hugging
     the `direction` rail. If you pass `left`, your car will hug
-    the left rail, thus allowing you to go around righthand turns.
+    the left rail, thus allowing you to go around right hand turns.
     """
 
     race_start = time.time()
@@ -67,6 +67,29 @@ def end_race() -> None:
             press(command)
 
 
+def reset_mileage() -> None:
+    """Reset the mileage of the car through detailed settings sheet menu bug."""
+
+    commands = [
+        "right",
+        "right",
+        "right",
+        "enter",  # Settings
+        "enter",  # Car Settings
+        "down",
+        "down",
+        "down",
+        "enter",  # Detailed Settings
+        "back",
+        "back",  # Back to Race Menu
+        "left",
+        "left",
+        "left",  # Back to Start Button
+    ]
+    for command in commands:
+        press(command)
+
+
 def start_race(first: bool) -> None:
     """Initiate race from the start race menu."""
     if first:
@@ -87,6 +110,7 @@ def start_race(first: bool) -> None:
         press("down")
         press("enter")
     else:
+        reset_mileage()
         press("enter")
 
 
@@ -125,4 +149,4 @@ if __name__ == "__main__":
         print(duration, flush=True)
 
         if not SILENCE:
-            print(f"{(((60*60) / duration)):.2f} races/hour", flush=True)
+            print(f"{(((60 * 60) / duration)):.2f} races/hour", flush=True)
